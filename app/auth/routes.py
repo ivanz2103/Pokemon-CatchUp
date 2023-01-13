@@ -13,12 +13,14 @@ def signup():
         if form.validate():
 
             username = form.username.data
+            first_name = form.first_name.data
+            last_name = form.last_name.data
             email = form.email.data
             password = form.password.data
 
             print(username, email, password)
 
-            user = User(username, email, password)
+            user = User(username, first_name, last_name, email, password)
 
             db.session.add(user)
             db.session.commit()
@@ -33,7 +35,6 @@ def login():
     if request.method =='POST':
         if form.validate():
             username = form.username.data
-            email = form.email.data
             password = form.password.data
 
             #Query user from db
