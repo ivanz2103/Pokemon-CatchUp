@@ -8,16 +8,16 @@ db = SQLAlchemy()
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50),nullable=False, unique=True)
-    first_name = db.Column(db.String(50),nullable=False, unique=True)
-    last_name = db.Column(db.String(50),nullable=False, unique=True)
+    first = db.Column(db.String(50),nullable=False, unique=True)
+    last = db.Column(db.String(50),nullable=False, unique=True)
     email = db.Column(db.String(250), nullable=False, unique=True)
     password = db.Column(db.String(250), nullable=False)
     post = db.relationship("Post", backref='Author', lazy=True)
 
-    def __init__(self, username, first_name, last_name, email, password):
+    def __init__(self, username, first, last, email, password):
         self.username = username
-        self.first_name = first_name
-        self.last_name = last_name
+        self.first = first
+        self.last = last
         self.email = email
         self.password = generate_password_hash(password)
 

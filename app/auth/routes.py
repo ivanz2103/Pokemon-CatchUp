@@ -13,14 +13,14 @@ def signup():
         if form.validate():
 
             username = form.username.data
-            first_name = form.first_name.data
-            last_name = form.last_name.data
+            first = form.first.data
+            last = form.last.data
             email = form.email.data
             password = form.password.data
 
-            print(username, email, password)
+            print(username, first, last, email, password)
 
-            user = User(username, first_name, last_name, email, password)
+            user = User(username, first, last, email, password)
 
             db.session.add(user)
             db.session.commit()
