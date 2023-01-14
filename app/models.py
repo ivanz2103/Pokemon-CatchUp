@@ -12,7 +12,6 @@ class User(db.Model, UserMixin):
     last = db.Column(db.String(50),nullable=False, unique=True)
     email = db.Column(db.String(250), nullable=False, unique=True)
     password = db.Column(db.String(250), nullable=False)
-    post = db.relationship("Post", backref='Author', lazy=True)
 
     def __init__(self, username, first, last, email, password):
         self.username = username
