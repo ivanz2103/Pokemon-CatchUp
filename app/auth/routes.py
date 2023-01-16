@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, current_user
 from app.auth.forms import UserSignupForm, LoginForm
 from app.models import User, db
@@ -31,6 +31,7 @@ def signup():
 
 @auth.route('/login', methods=['GET', 'POST'])  #login
 def login():
+    print('text')
     form = LoginForm()
     if request.method =='POST':
         if form.validate():
@@ -41,7 +42,7 @@ def login():
             user = User.query.filter_by(username=username).first()
             if user:
                 if check_password_hash(user.password, password):
-                    print('Logged in')
+                    flash('Logged in', 'success')
                     login_user(user)
                 else:
                     print('Invalid password')

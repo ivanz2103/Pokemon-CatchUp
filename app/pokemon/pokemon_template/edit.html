@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<a class='card mx-auto text-decoration-none' style="width: 20rem; margin: 2rem;" href="/create/{{pokemonPokedex.id}}">
+    <img src="{{ pokemonPokedex['sprite_url'] }}">
+    <div class="card-body">
+        <h4 class="card-title text-dark">{{ pokemonPokedex['name'] }}</h4>
+        <p class="card-text">
+        <ul class="text-dark">
+            <li>Ability: {{pokemonPokedex['ability']}}</li>
+            <li>Base Experience: {{pokemonPokedex['base_experience']}}</li>
+            <li>Health Bar: {{pokemonPokedex['hp_base']}}</li>
+            <li>Attack Base: {{pokemonPokedex['attack_base']}}</li>
+            <li>Defense Base: {{pokemonPokedex['defense_base']}}</li>
+        </ul>
+        </p>
+        <a href="#" class="btn btn-primary">Button</a>
+    </div>>
+</a>
+{% endblock %}

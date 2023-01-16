@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}    
+{% for p in pokemon %}
+{% if current_user.id == p.user_id %}
+<div class="card mx-auto m-2 text-decoration-none card-color" style="width: 30rem;">
+    <img class="card-img-top" src="{{p.sprite_url}}" alt="Card image cap" style="height: 20rem;">
+    <div class="card-body">
+        <h4 class="card-title text-dark">Pokemon: {{p.name}}</h4>
+        <h1 class="card-text caption-text text-dark">{{p.Author.username}}</h1>
+        <p class="card-text caption-text text-dark">Abilites: {{p.ability}}</p>
+        <p class="card-text caption-text text-dark">Base Exp: {{p.base_experience}}</p>
+        <p class="card-text caption-text text-dark">Attack: {{p.attack_base}}</p>
+        <p class="card-text caption-text text-dark">HP: {{p.hp_base}}</p>
+        <p class="card-text caption-text text-dark">Defense: {{p.defense_base}}</p>
+    </div>   
+</div>
+{% endif %}
+{% endfor %}
+{% endblock %}

@@ -5,9 +5,11 @@ from .models import User, db
 from .auth.routes import auth
 from .pokemon.routes import pokemon,db
 from flask_login import LoginManager
+from flask_moment import Moment
 app = Flask(__name__)
 
 app.config.from_object(Config)
+moment = Moment(app)
 
 login_manager = LoginManager()
 @login_manager.user_loader

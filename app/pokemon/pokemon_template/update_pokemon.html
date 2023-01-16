@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<body class="bdy">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="poke">
+                {{ form.pokemon(class='form-control rounded', placeholder='Update Pokemon')}}
+                {{ form.submit(class='btn btn-primary btn-block btn-lg', value='Click') }}
+            </div>
+        </form>
+        <div class='card mx-auto' style="width: 20rem; margin: 2rem;">
+            <img src="{{ pokemonPokedex['sprite_url'] }}">
+            <div class="card-body">
+                <h4 class="card-title">{{ pokemonPokedex['name'], value=pokemon.name}}</h4>
+                <p class="card-text">
+                <ul>
+                    <li>Ability: {{pokemonPokedex['ability', value=pokemon.ability]}}</li>
+                    <li>Base Experience: {{pokemonPokedex['base_experience', value=pokemon.base_experience]}}</li>
+                    <li>Health Bar: {{pokemonPokedex['hp_base', value=pokemon.hp_base]}}</li>
+                    <li>Attack Base: {{pokemonPokedex['attack_base', value=pokemon.attack_base]}}</li>
+                    <li>Defense Base: {{pokemonPokedex['defense_base', value=pokemon.defense_base]}}</li>
+                </ul>
+                </p>
+        </div>
+    </body>
+{% endblock %}

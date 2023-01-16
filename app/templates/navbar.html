@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Pokedex</a>
+      <a class="navbar-brand" href="/">Pokedex</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -8,16 +8,22 @@
         <ul class="navbar-nav">
           {% if current_user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
           <li>
             <a class="nav-link" href="/create">Find Pokemon</a>
           </li>
-          <li class="nav-item">
+          <li>
             <a class="nav-link" href="/logout">Logout</a>
           </li>
           <li class="nav-item">
             <a class="nav-link">Hello, {{ current_user.username.title() }}</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/view">View Pokemon</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/pokeball">My Pokeball</a>
           </li>
           {% else %}
           <li class="nav-item">

@@ -5,3 +5,4 @@ from wtforms.validators import DataRequired
 class CreatePokemon(FlaskForm):
     pokemon = StringField('Pokemon', validators=[DataRequired()])
     submit = SubmitField()
+
