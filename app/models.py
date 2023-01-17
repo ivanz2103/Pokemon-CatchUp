@@ -61,3 +61,29 @@ class Pokemon(db.Model):
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
+
+class Pokeballs(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    ability = db.Column(db.String(50), nullable=False)
+    base_experience =db.Column(db.Integer, nullable=False)
+    sprite_url = db.Column(db.String(), nullable=False)
+    attack_base = db.Column(db.Integer, nullable=False)
+    hp_base = db.Column(db.Integer, nullable=False)
+    defense_base = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
+
+
+    def __init__(self, name, ability, base_experience, sprite_url, attack_base, hp_base, defense_base, user_id):
+        self.name = name
+        self.ability = ability
+        self.base_experience = base_experience
+        self.sprite_url = sprite_url
+        self.attack_base = attack_base
+        self.hp_base = hp_base
+        self.defense_base = defense_base
+        self.user_id = user_id
+    
+    def save_to_db(self):
+        db.session.add(self)
+        db.session.commit()

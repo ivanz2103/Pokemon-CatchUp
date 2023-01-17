@@ -21,7 +21,7 @@
                   <h5 class="mb-1">{{user.username}}</h5>
                   <p class="mb-2 pb-1" style="color: #2b2a2a;">Thieves Programmer</p>
                   <div lass="d-flex pt-1c">
-                    <a class="btn btn-primary flex-grow-1" href="">Attack</a>
+                    <a class="btn btn-primary flex-grow-1" href="{{url_for('pokemon.battles',id=user.id)}}">Attack</a>
                   </div>
                 </div>
               </div>

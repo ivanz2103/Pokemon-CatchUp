@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from app.models import Pokemon, db
+from app.models import Pokemon, db, User
 from app.pokemon.forms import CreatePokemon
 import requests
 from flask_login import current_user, login_required
@@ -110,3 +110,14 @@ def pokeball():
     pokemon  = Pokemon.query.all()
     
     return render_template('pokeball.html', pokemon=pokemon)
+
+@pokemon.route('/battle/<int:id>', methods=['GET', 'POST'])
+@login_required
+def battles(id):
+    users = User.query.get(id)
+    pokemon = Pokemon.query.get(id)
+    poke = Pokemon.query.get(current_user.id)
+    if users:
+        return render_template('battle.html', poke=poke, users=users, pokemon=pokemon)
+    else:
+        return redirect(url_for('pokemon.pokeball'))

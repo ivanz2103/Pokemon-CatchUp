@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <img src="{{pokemon.sprite_url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <p>Ability: {{pokemon.ability}}</p>
+        <p>Base: {{pokemon.base_experience}}</p>
+        <p>Attack: {{pokemon.attack_base}}</p>
+        <p>Hp: {{pokemon.hp_base}}</p>
+        <p>Defense: {{pokemon.defense_base}}</p>
+    </div>
+  </div>
+
+
+<h1>VS</h1>
+
+
+<div class="card" style="width: 18rem;">
+    <img src="{{poke.sprite_url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="text">Ability: {{poke.ability}}</p>
+      <p class="text">Base:{{poke.base_experience}}</p>
+      <p class="text">Attack:{{poke.attack_base}}</p>
+      <p class="text">Hp:{{poke.hp_base}}</p>
+      <p class="text">Defense:{{poke.defense_base}}</p>
+      <p></p>
+    </div>
+  </div>
+{% if pokemon.attack_base > poke.attack_base %}
+<h1>You win</h1>
+{% endif %}
+{% endblock %}
